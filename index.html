@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onboarding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-rustic {
+      font-family: 'Allura', cursive;
+    }
+    /* Neumorphism for Black Button */
+    .neu-button-black {
+      background: linear-gradient(145deg, #1f1f1f, #161616);
+      box-shadow:  6px 6px 12px #d1d1d1, 
+                   -6px -6px 12px #ffffff;
+      transition: all 0.3s ease;
+    }
+    .neu-button-black:hover {
+      background: linear-gradient(145deg, #161616, #1f1f1f);
+      transform: translateY(-2px);
+      box-shadow:  8px 8px 16px #d1d1d1, 
+                   -8px -8px 16px #ffffff;
+    }
+    .neu-button-black:active {
+      transform: translateY(0);
+      box-shadow: inset 4px 4px 8px #0b0b0b, 
+                  inset -4px -4px 8px #262626;
+    }
+
+    .glass-gradient {
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+    }
+    
+    .gradient-border-mask {
+      position: relative;
+    }
+    
+    .fade-enter {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    .fade-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 500ms ease-out, transform 500ms ease-out;
+    }
+
+    /* Auto-scroll specific styles */
+    .mask-image-gradient {
+      mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Shimmer Animation for Skeleton */
+    @keyframes shimmer {
+      100% {
+        transform: translateX(100%);
+      }
+    }
+    .animate-shimmer {
+      animation: shimmer 2s infinite;
+    }
+
+    /* Breathing Animation for Play Button */
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+      50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0); }
+    }
+    .animate-breathe {
+      animation: breathe 3s infinite ease-in-out;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "canvas-confetti": "https://esm.sh/canvas-confetti@1.6.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-white text-slate-800 selection:bg-cyan-100">
+  <div id="root"></div>
+  <script type="text/babel" src="index.tsx" data-presets="react,typescript"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
